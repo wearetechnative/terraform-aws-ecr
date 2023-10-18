@@ -8,3 +8,12 @@ terraform {
     }
   }
 }
+
+provider "aws" {}
+
+module "ecr" {
+  source = "./.."
+
+  name            = "very-unique-ecr-name-202303291321"
+  num_keep_images = 10
+}

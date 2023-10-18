@@ -1,92 +1,37 @@
-> START INSTRUCTION FOR TECHNATIVE ENGINEERS
-
-# terraform-aws-module-template
-
-Template for creating a new TerraForm AWS Module. For TechNative Engineers.
-
-## Instructions
-
-### Your Module Name
-
-Think hard and come up with the shortest descriptive name for your module.
-Look at competition in the [terraform
-registry](https://registry.terraform.io/).
-
-Your module name should be max. three words seperated by dashes. E.g.
-
-- html-form-action
-- new-account-notifier
-- budget-alarms
-- fix-missing-tags
-
-### Setup Github Project
-
-1. Click the template button on the top right...
-1. Name github project `terraform-aws-[your-module-name]`
-1. Make project private untill ready for publication
-1. Add a description in the `About` section (top right)
-1. Add tags: `terraform`, `terraform-module`, `aws` and more tags relevant to your project: e.g. `s3`, `lambda`, `sso`, etc..
-1. Install `pre-commit`
-
-### Develop your module
-
-1. Develop your module
-1. Try to use the [best practices for TerraForm
-   development](https://www.terraform-best-practices.com/) and [TerraForm AWS
-   Development](https://github.com/ozbillwang/terraform-best-practices).
-
-## Finish project documentation
-
-1. Set well written title
-2. Add one or more shields
-3. Start readme with a short and complete as possible module description. This
-   is the part where you sell your module.
-4. Complete README with well written documentation. Try to think as a someone
-   with three months of Terraform experience.
-5. Check if pre-commit correctly generates the standard Terraform documentation.
-
-## Publish module
-
-If your module is in a state that it could be useful for others and ready for
-publication, you can publish a first version.
-
-1. Create a [Github
-   Release](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)
-2. Publish in the TerraForm Registry under the Technative Namespace (the GitHub
-   Repo must be in the TechNative Organization)
-
----
-
-> END INSTRUCTION FOR TECHNATIVE ENGINEERS
-
-
-# Terraform AWS [Module Name] ![](https://img.shields.io/github/workflow/status/TechNative-B-V/terraform-aws-module-name/tflint.yaml?style=plastic)
-
-<!-- SHIELDS -->
-
-This module implements ...
-
-[![](we-are-technative.png)](https://www.technative.nl)
-
-## How does it work
-
-### First use after you clone this repository or when .pre-commit-config.yaml is updated
-
-Run `pre-commit install` to install any guardrails implemented using pre-commit.
-
-See [pre-commit installation](https://pre-commit.com/#install) on how to install pre-commit.
-
-...
-
-## Usage
-
-To use this module ...
-
-```hcl
-{
-  some_conf = "might need explanation"
-}
-```
+# terraform-aws-module-ecr
 
 <!-- BEGIN_TF_DOCS -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >=4.21.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_ecr_lifecycle_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_lifecycle_policy) | resource |
+| [aws_ecr_repository.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_encryption_kms_key_arn"></a> [encryption\_kms\_key\_arn](#input\_encryption\_kms\_key\_arn) | KMS key to use for encrypting the ECR repository. If left empty the default AWS managed key is used. | `string` | `null` | no |
+| <a name="input_image_tag_mutability"></a> [image\_tag\_mutability](#input\_image\_tag\_mutability) | Set to true to enable tag mutability. Defaults to false. | `bool` | `false` | no |
+| <a name="input_name"></a> [name](#input\_name) | Unique name for the ECR repository. | `string` | n/a | yes |
+| <a name="input_num_keep_images"></a> [num\_keep\_images](#input\_num\_keep\_images) | Keep the X most recent images. | `number` | `100` | no |
+| <a name="input_scan_on_push"></a> [scan\_on\_push](#input\_scan\_on\_push) | Scan pushed images for vulnerabilities. | `bool` | `true` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_ecr_repository_arn"></a> [ecr\_repository\_arn](#output\_ecr\_repository\_arn) | Full ARN of the repository |
+| <a name="output_ecr_repository_url"></a> [ecr\_repository\_url](#output\_ecr\_repository\_url) | URL of the repository (in the form aws\_account\_id.dkr.ecr.region.amazonaws.com/repositoryName) |
 <!-- END_TF_DOCS -->
