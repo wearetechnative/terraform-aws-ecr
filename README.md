@@ -1,4 +1,4 @@
-# terraform-aws-module-ecr
+# terraform-aws-module-ecr ![](https://img.shields.io/github/actions/workflow/status/wearetechnative/terraform-aws-ecr/tflint.yaml?branch=main&style=plastic)
 
 [![](we-are-technative.png)](https://www.technative.nl)
 
